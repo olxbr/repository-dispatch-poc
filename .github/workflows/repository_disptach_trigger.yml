@@ -14,3 +14,6 @@ jobs:
             -H 'Accept: application/vnd.github.everest-preview+json' \
             -H 'Authorization: token ${{ secrets.PAT }}' \
             --data '{"event_type": "ecr-push", "client_payload": { "version": "${GITHUB_REF#refs/heads/}", "pr_number": "'"${PR_NUMBER}"'" }}'
+      - name: Wait 30s
+        run: |
+          sleep 30s
