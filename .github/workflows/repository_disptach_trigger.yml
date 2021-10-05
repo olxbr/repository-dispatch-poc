@@ -5,14 +5,10 @@ on: [push]
 jobs:
   trigger:
     runs-on: ubuntu-latest
-      #    permissions:
-      #      actions: write
-      #      repository-projects: write
-      #      statuses: write
     steps:
       - name: Tigger
         run: |
           curl -X POST https://api.github.com/repos/olxbr/devtools-scripts/dispatches \
             -H 'Accept: application/vnd.github.everest-preview+json' \
             -H 'Authorization: token ${{ secrets.PAT }}' \
-            --data '{"event_type": "ecr-push", "client_payload": { "repository": "'olxbr/devtools-scripts'" }}'
+            --data '{"event_type": "ecr-push", "client_payload": { "version": "${GITHUB_REF#refs/heads/}" }}'
