@@ -5,6 +5,7 @@ on: [pull_request]
 jobs:
   prepare_branch:
     runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
 
       - name: Merge current branch -> v1-beta
