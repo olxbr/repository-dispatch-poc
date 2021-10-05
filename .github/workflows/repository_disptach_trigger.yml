@@ -5,10 +5,10 @@ on: [push]
 jobs:
   trigger:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      repository-projects: write
-      statuses: write
+      #    permissions:
+      #      actions: write
+      #      repository-projects: write
+      #      statuses: write
     steps:
       - name: Tigger
         run: |
