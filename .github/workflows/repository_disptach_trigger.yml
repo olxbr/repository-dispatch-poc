@@ -12,4 +12,7 @@ jobs:
     steps:
       - name: Tigger
         run: |
-          curl -X POST https://api.github.com/repos/olxbr/devtools-scripts/dispatches -H 'Accept: application/vnd.github.everest-preview+json' -u "${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}" --data '{"event_type": "ecr-push", "client_payload": { "repository": "'olxbr/devtools-scripts'" }}'
+          curl -X POST https://api.github.com/repos/olxbr/devtools-scripts/dispatches \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -u "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
+            --data '{"event_type": "ecr-push", "client_payload": { "repository": "'olxbr/devtools-scripts'" }}'
