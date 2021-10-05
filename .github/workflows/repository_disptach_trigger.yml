@@ -1,6 +1,6 @@
 name: Trigger RD ECR
 
-on: [push]
+on: [push, pull_request]]
 
 jobs:
   trigger:
