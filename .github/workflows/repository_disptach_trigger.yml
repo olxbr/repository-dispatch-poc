@@ -1,0 +1,18 @@
+name: Trigger RD ECR
+
+on: [push]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      repository-projects: write
+      statuses: write
+    steps:
+      - name: Tigger
+        run: |
+          curl -v -X POST https://api.github.com/repos/olxbr/devtools-scripts/dispatches \
+                    -H 'Accept: application/vnd.github.everest-preview+json' \
+                    -u $GITHUB_ACTOR:$GITHUB_TOKEN \
+                    --data '{"event_type": "ecr-push", "client_payload": { "repository": "'olxbr/devtools-scripts'" }}'
