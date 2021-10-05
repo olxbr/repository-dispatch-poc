@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Merge current branch -> v1-beta
-        uses: devmasx/merge-branch@v1.4.0
+        uses: devmasx/merge-branch@main
         with:
           type: now
           target_branch: v1-beta
